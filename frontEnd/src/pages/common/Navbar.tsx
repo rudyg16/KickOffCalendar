@@ -21,6 +21,7 @@ const Navbar: FC = () => {
                         <img src={ball} alt='ball logo' className="h-8 w-8 " />
                         <span className=" font-gilroy font-bold text-2xl ">KickOff</span>    
                 </Link>
+                
             </div>
             {/*Bottom Row*/}
             <div>
