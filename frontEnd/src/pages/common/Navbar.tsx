@@ -2,6 +2,10 @@ import { useState, type FC } from 'react';
 import ball from '../../assets/navassets/ball.svg';
 import type {NavLink} from "./types/NavLink";
 import {Link} from 'react-router-dom'
+import SearchBar from './SearchBar';
+
+import { IoMdSettings } from "react-icons/io";
+import { CgProfile } from "react-icons/cg";
 
 const Navbar: FC = () => {
 
@@ -21,7 +25,16 @@ const Navbar: FC = () => {
                         <img src={ball} alt='ball logo' className="h-8 w-8 " />
                         <span className=" font-gilroy font-bold text-2xl ">KickOff</span>    
                 </Link>
-                
+
+            <div>
+                <SearchBar/>
+            </div>
+            <div className="flex items-center space-x-5 mr-5 text-[var(--color-text)]">
+                <div className="hover:scale-105"><IoMdSettings size={30}/></div>
+                    <div className="hover:scale-105"><CgProfile size={30}/></div>
+            </div>
+
+
             </div>
             {/*Bottom Row*/}
             <div>
