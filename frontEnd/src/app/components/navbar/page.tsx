@@ -1,8 +1,7 @@
-'use client'; // Mark as Client Component because SearchBar uses state
+'use client';
 
 import { useState, type FC } from 'react';
-import Image from 'next/image';
-import SearchBar from './SearchBar';
+import SearchBar from '../searchbar/page';
 
 import Link from 'next/link';
 import { GiSoccerBall } from "react-icons/gi";
@@ -21,6 +20,7 @@ const Navbar: FC = () => {
         { id: 2, href: "/settings", label: "Settings" },
         { id: 3, href: "/login", label: "Login" },
         { id: 4, href: "/favorites", label: "Favorites" },
+        { id: 5, href: "/", label: "Favorites" }
     ];
 
     return (
@@ -28,7 +28,7 @@ const Navbar: FC = () => {
             {/* Top Row */}
             <div className="flex items-center justify-between mb-2">
                 <Link href="/" className="flex items-center space-x-2 transition-all hover:scale-105">
-                    <Image src={ball} alt="ball logo" width={32} height={32} />
+                    <GiSoccerBall size={32} />
                     <span className="font-gilroy font-bold text-2xl">KickOff</span>
                 </Link>
 
@@ -37,12 +37,8 @@ const Navbar: FC = () => {
                 </div>
 
                 <div className="flex items-center space-x-5 mr-5 text-[var(--color-text)]">
-                    <div className="hover:scale-105">
-                        <IoMdSettings size={30} />
-                    </div>
-                    <div className="hover:scale-105">
-                        <CgProfile size={30} />
-                    </div>
+                    <Link href="/settings" className="hover:scale-105 transition-all"> <IoMdSettings size={30} /></Link>
+                    <Link href="/profile" className="hover:scale-105 transition-all"> <CgProfile size={30} /></Link>
                 </div>
             </div>
 
@@ -54,6 +50,7 @@ const Navbar: FC = () => {
                     </Link>
                 ))}
             </div>
+            
         </nav>
     );
 };
