@@ -1,58 +1,41 @@
 package com.kickoffcalendar.model;
 
-import java.time.ZonedDateTime;
-import java.time.ZoneOffset;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import java.util.List; 
+import java.util.ArrayList;
 
+@Entity//marks class as a table in relationship
+@Data 
+@Table(name="team") 
+@NoArgsConstructor
 public class Team {
-
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-incremented DB ID
     private Long id;
+
+    @Column(nullable = false)
     private String name;
-    private String logoUrl; 
+
+    @Column(nullable = false)
+    private String venue;
+
     private String country;
-    private ZonedDateTime createdAt; 
-    protected void onCreate() {
-        this.createdAt = ZonedDateTime.now(ZoneOffset.UTC);
-    }
 
-    // Getters and Setters
+    @Column(name = "bucket_image_url")
+    private String bucketImageUrl;
 
-    public Long getId() {
-        return id;
-    }
+    @Column(name = "api_image_url")
+    private String apiImageUrl;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @Column(name = "api_id", nullable = false, unique = true)
+    private Long apiID;
 
-    public String getName() {
-        return name;
-    }
+    // Relationship to Competition
+    //@ManyToOne
+    //@JoinColumn(name = "competition_id") // FK column in the table
+    //private Competition competition;
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLogoUrl() {
-        return logoUrl;
-    }
-
-    public void setLogoUrl(String logoUrl) {
-        this.logoUrl = logoUrl;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public ZonedDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(ZonedDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
 }
