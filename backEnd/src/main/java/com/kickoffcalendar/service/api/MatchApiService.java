@@ -1,6 +1,5 @@
 package com.kickoffcalendar.service.api;
 
-public class CompetitionAPI {
-    
+public class MatchApiService {
     
 }
