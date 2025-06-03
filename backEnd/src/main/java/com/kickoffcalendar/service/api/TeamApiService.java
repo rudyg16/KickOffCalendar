@@ -1,5 +1,6 @@
 package com.kickoffcalendar.service.api;
 
-public class SeasonAPI {
+public class TeamApiService {
+
     
 }
